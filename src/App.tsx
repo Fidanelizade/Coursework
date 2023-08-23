@@ -1,36 +1,42 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, View} from "react-native";
-import Images from './assets/images/Eating image.svg';
-import Text from './assets/fonts/Text1.1.svg';
-import Note from './assets/fonts/Note.svg';
-import Black from './assets/icons/Black button.svg';
-import Get from './assets/icons/Get started button.svg';
+import { SafeAreaView, StyleSheet, Text, View} from "react-native";
+import Girl from './assets/icon/Girl.svg';
+
 export const App = () => {
     return (
         <SafeAreaView style={styles.safeArea}>    
-            <View style={styles.header}>
-            <View style={styles.Text}/>
-              <Images/>
-              <Text/>
-              <Note/>
-              <Black/>
-              <Get/>
-            </View>
+              <View>
+              <Girl/>
+              </View>
+              <View>
+                <Text style={styles.title}>Make your favorites recipes</Text>
+                <Text style={styles.about}>Just tell us what ingredients do you have and we will show you
+what can you make.</Text>
+              </View>
        </SafeAreaView>
     );           
 };
 
 const styles = StyleSheet.create( {
     safeArea: {
-        flex:1,
-        backgroundColor:'tomato',
+        flex: 1,
+        backgroundColor:'#FE724C',
     },
-    header: {
-        flex:1,
-        justifyContent: 'flex-start',
+    title: {
+     width: 353,
+     height: 98,
+     color: '#FFF',
+     textAlign: 'center',
+     fontSize: 45,
+     fontweight: 700,
     },
-    text: {
-        flex:1,
-      justifyContent: 'center',
+    about: {
+        width: 298,
+        height: 57,
+        color: '#FFF',
+        textAlign: 'center',
+        fontSize: 18,
+        fontweight: 400,
     },
 });
+
