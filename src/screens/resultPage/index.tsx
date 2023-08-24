@@ -64,7 +64,7 @@ export const ResultPage = () => {
       <View style={styles.greeting}>
         <Text style={styles.greetingText}>Here's what{'\n'}you can make</Text>
       </View>
-      <SearchBar/>
+      <SearchBar onSearch={null}/>
     </View>
   );
 };
