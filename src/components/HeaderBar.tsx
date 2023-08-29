@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState} from 'react';
 import {
   StyleSheet,
   View,
@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 import HeartIcon from '../assets/icons/heart.svg';
 import VectorIcon from '../assets/icons/Vector.svg';
+import { ScrollView } from 'react-native-gesture-handler';
+
 const categories = [
   {
     title: 'Name',
@@ -31,11 +33,11 @@ export const HeaderBar = ({onSearch}) => {
   const [searchText, setSearchText] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('name');
   const handleSearch = () => {
-    onSearch(searchText);
+    onSearch(searchText); 
   };
-
+   
   return (
-    <View>
+    <View style={styles.container}>
       <View style={styles.header}>
         <HeartIcon />
       </View>
@@ -43,7 +45,7 @@ export const HeaderBar = ({onSearch}) => {
       <View style={styles.backContainer}>
         <Text style={styles.greetingText}>Here's what{'\n'}you can make</Text>
         <View style={styles.inputContainer}>
-          <VectorIcon width={18} height={18} />
+          <VectorIcon style={{width: 18, height: 18, marginHorizontal: 15 }} />
 
           <TextInput
             style={styles.input}
@@ -54,21 +56,26 @@ export const HeaderBar = ({onSearch}) => {
           />
         </View>
       </View>
+      <ScrollView>
 
       <View style={styles.categories}>
         {categories.map(item => {
           return (
             <TouchableOpacity
               style={{
-                backgroundColor:
-                  selectedCategory === item.key ? '#FE724C' : 'transparent',
+                borderRadius: 40,
+                width: 90,
+                height: 30,
+                backgroundColor:selectedCategory === item.key ? '#FE724C' : 'transparent',
               }}
               onPress={() => setSelectedCategory(item.key)}>
-              <Text>{item.title}</Text>
+              <Text style={styles.buttonTitle}>{item.title}</Text>
             </TouchableOpacity>
           );
         })}
       </View>
+        </ScrollView>
+    
     </View>
   );
 };
@@ -77,7 +84,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F2F2F2',
-    paddingHorizontal: 50,
   },
   backContainer: {
     marginHorizontal: 25,
@@ -110,11 +116,19 @@ const styles = StyleSheet.create({
   categories: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+    lineHeight: 24,
+
   },
   title: {
     color: '#272D2F',
     textAlign: 'center',
     fontSize: 18,
     lineHeight: 18,
+  },
+  buttonTitle: {
+    fontSize: 17,
+    alignSelf: 'center',
+
+
   },
 });
