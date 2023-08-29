@@ -5,10 +5,10 @@ import {
   TextInput,
   TouchableOpacity,
   Text,
+  ScrollView
 } from 'react-native';
 import HeartIcon from '../assets/icons/heart.svg';
 import VectorIcon from '../assets/icons/Vector.svg';
-import { ScrollView } from 'react-native-gesture-handler';
 
 const categories = [
   {
