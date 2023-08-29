@@ -1,36 +1,64 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, View} from "react-native";
-import Images from './assets/images/Eating image.svg';
-import Text from './assets/fonts/Text1.1.svg';
-import Note from './assets/fonts/Note.svg';
-import Black from './assets/icons/Black button.svg';
-import Get from './assets/icons/Get started button.svg';
+import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import Girl from './src/assets/images/Girl 1.svg';
+
 export const App = () => {
     return (
-        <SafeAreaView style={styles.safeArea}>    
-            <View style={styles.header}>
-            <View style={styles.Text}/>
-              <Images/>
-              <Text/>
-              <Note/>
-              <Black/>
-              <Get/>
+        <SafeAreaView style={styles.safeArea}>
+              <View style={styles.woman}>
+              <Girl/>
+              </View>
+            <View>
+                <Text style={styles.title}>Make your favorites recipes</Text>
+                <Text style={styles.about}>Just tell us what ingredients do you have and we will show you
+                    what can you make.</Text>
             </View>
-       </SafeAreaView>
-    );           
+            <View style={styles.button}>
+                <TouchableOpacity>
+                    <Text style={styles.text}>GET STARTED</Text>
+                </TouchableOpacity>
+            </View>
+        </SafeAreaView>
+    );
 };
 
 const styles = StyleSheet.create( {
     safeArea: {
-        flex:1,
-        backgroundColor:'tomato',
+        flex: 1,
+        backgroundColor:'#FE724C',
     },
-    header: {
-        flex:1,
-        justifyContent: 'flex-start',
+    woman: {
+    alignItems:'center',
+    },
+    title: {
+     width: 350,
+     height: 90,
+     color: '#FFF',
+     textAlign: 'center',
+     fontSize: 30,
+     fontWeight:'700',
+    },
+    about: {
+        width: 360,
+        height: 109,
+        color: '#FFF',
+        textAlign: 'center',
+        fontSize: 22,
+        fontWeight: '400',
+    },
+    button: {
+        width: 355,
+        height: 60,
+        borderRadius:30,
+        alignItems: 'center',
+        backgroundColor: '#272D2F',
     },
     text: {
-        flex:1,
-      justifyContent: 'center',
-    },
+        height:60,
+        color: '#FFF',
+        fontSize: 35,
+        fontWeight: '700',
+        alignContent: 'center',
+    }
 });
+
