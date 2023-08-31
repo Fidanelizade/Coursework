@@ -5,7 +5,6 @@ import {
   TextInput,
   TouchableOpacity,
   Text,
-  ScrollView,
 } from 'react-native';
 import HeartIcon from '../assets/icons/heart.svg';
 import VectorIcon from '../assets/icons/Vector.svg';
@@ -41,7 +40,9 @@ export const HeaderBar = ({onSearch}) => {
     const response = await fetch(`${selectedCategory.url}${searchText}`);
     const reponseJson = await response.json();
     onSearch(reponseJson.meals);
+  
   };
+  
 
   return (
     <View style={styles.container}>
@@ -61,29 +62,29 @@ export const HeaderBar = ({onSearch}) => {
           />
         </View>
       </View>
-      <ScrollView>
+    
         <View style={styles.categories}>
           {categories.map(item => {
             return (
               <TouchableOpacity
-                style={{
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  borderRadius: 40,
-                  width: 90,
-                  height: 30,
-                  backgroundColor:
-                    selectedCategory.key === item.key
-                      ? '#FE724C'
-                      : 'transparent',
-                }}
-                onPress={() => setSelectedCategory(item)}>
+              style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: 40,
+                width: 90,
+                height: 30,
+                backgroundColor:
+                selectedCategory.key === item.key
+                ? '#FE724C'
+                : 'transparent',
+              }}
+              onPress={() => setSelectedCategory(item)}>
                 <Text
                   style={[
                     styles.buttonTitle,
                     {
                       color:
-                        selectedCategory.key === item.key ? 'white' : '#272D2F',
+                      selectedCategory.key === item.key ? 'white' : '#272D2F',
                     },
                   ]}>
                   {item.title}
@@ -92,11 +93,10 @@ export const HeaderBar = ({onSearch}) => {
             );
           })}
         </View>
-      </ScrollView>
-    </View>
+        </View>
   );
 };
-
+    
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 20,
