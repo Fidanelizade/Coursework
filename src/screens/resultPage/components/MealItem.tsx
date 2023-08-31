@@ -5,17 +5,14 @@ import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
-const navigation = useNavigation();
+
 export const MealItem  = ({item}) => {
   console.log("item",item)
+  const navigation = useNavigation();
   
-  const handleIngredient = async () => {
-    const response = await fetch (
-      'https://www.themealdb.com/api/json/v1/1/lookup.php?i=',
-    );
-    const result = await response.json();
-    console.log(result);
-    navigation.navigate('Ingredients')
+  const handleIngredient =  () => {
+    
+  navigation.navigate('Ingredients', {idMeal: item.idMeal})
   };
 
   
